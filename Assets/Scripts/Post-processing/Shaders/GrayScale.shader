@@ -1,3 +1,4 @@
+// Adapted from https://www.shadertoy.com/view/lsdXDH
 Shader "CustomEffects/GrayScale"
 {
     HLSLINCLUDE
@@ -11,19 +12,19 @@ Shader "CustomEffects/GrayScale"
 
     float4 Process(Varyings input) : SV_Target
     {
-        // ²ÉÑùÆÁÄ»ÑÕÉ«
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½É«
         float3 color = SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb;
 
-        // »Ò¶È»¯È¨ÖØ
+        // ï¿½Ò¶È»ï¿½È¨ï¿½ï¿½
         float3 lum = float3(0.299, 0.587, 0.114);
 
-        // ¼ÆËã»Ò¶ÈÖµ
+        // ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Öµ
         float gray = dot(lum, color);
 
-        // »ìºÏÔ­Ê¼ÑÕÉ«ºÍ»Ò¶ÈÑÕÉ«
+        // ï¿½ï¿½ï¿½Ô­Ê¼ï¿½ï¿½É«ï¿½Í»Ò¶ï¿½ï¿½ï¿½É«
         float3 finalColor = lerp(color, gray, _Factort);
 
-        // ·µ»Ø×îÖÕÑÕÉ«
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
         return float4(finalColor, 1.0);
     }
 

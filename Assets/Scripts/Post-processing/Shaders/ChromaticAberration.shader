@@ -1,3 +1,4 @@
+// Adapted from https://godotshaders.com/shader/chromatic-abberation/
 Shader "CustomEffects/ChromaticAberration"
 {
     HLSLINCLUDE
