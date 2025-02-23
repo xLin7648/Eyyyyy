@@ -12,19 +12,10 @@ Shader "CustomEffects/GrayScale"
 
     float4 Process(Varyings input) : SV_Target
     {
-        // ������Ļ��ɫ
         float3 color = SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb;
-
-        // �ҶȻ�Ȩ��
         float3 lum = float3(0.299, 0.587, 0.114);
-
-        // ����Ҷ�ֵ
         float gray = dot(lum, color);
-
-        // ���ԭʼ��ɫ�ͻҶ���ɫ
         float3 finalColor = lerp(color, gray, _Factort);
-
-        // ����������ɫ
         return float4(finalColor, 1.0);
     }
 
