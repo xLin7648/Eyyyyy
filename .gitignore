@@ -1,3 +1,6 @@
+/.vs
 /obj
 /Logs
 /Library
+
+.vsconfig
